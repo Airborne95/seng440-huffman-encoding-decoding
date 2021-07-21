@@ -16,7 +16,7 @@
   wprintf(L"U+%04X = '%lc' %d\n", 208, (wchar_t)208, 208);
 
   Things to tackle:
-    1. Verify that we can encode and decode
+    1. Verify that we can encode and decode (DONE)
     2. Simulate generation of string based on frequencies
     3. Build our trees
     4. Stitch all together
