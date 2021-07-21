@@ -21,14 +21,12 @@
 #include <string.h>
 #include <wchar.h>
 #include <locale.h>
-
-
-
+#include <stdbool.h>
 
 #define TABLE_SIZE 100
 
 typedef struct Character {
-  char letter;
+  wchar_t letter;
   float frequency;
   // unsigned int mapping;
   // int length;
@@ -56,20 +54,58 @@ struct node* newNode(unsigned int data)
     return (node);
 }
 
+void read_string() {
+  wchar_t input[] = L"@#$\n";
+  for(int letter = 0; letter < wcslen(input); letter++){
+    printf("%lc ", input[letter]);
+  }
+}
+
+void printSingleChar(wchar_t letter, bool new_line) {
+   (new_line) ? printf("%lc\n", letter) : printf("%lc ", letter);
+}
+
+wchar_t convertToCharacter(int ASCI) {
+  return (wchar_t)ASCI;
+}
+
+wchar_t convertToASCI(wchar_t letter) {
+  return (int)letter;
+}
+
+Character map_array[] = {
+  {L'a', 16.0},
+  {L'θ', 16.0},
+  {L'+', 16.0},
+};
 
 int main(int argc, char** argv) {
   printf("hello world\n");
   setlocale(LC_ALL, "");
-  // wchar_t one = (wchar_t)208;
-  // wchar_t two = (wchar_t)90;
-  // wchar_t nicole = '@';
-  // printf("%lc\n", nicole);
-  // wchar_t input[3] = {'@','$','%'};
-  // wchar_t *input;
-  // input =  (wchar_t)"@#$";
-  // char tmp[] = "abs";
-   wchar_t input[] = L"@#$\n";
-   wprintf(input);
+
+  size_t len = sizeof(map_array)/sizeof(map_array[0]);
+  for(int i=0; i < len; i++){
+    printSingleChar(map_array[i].letter, true);
+  }
+
+
 
   return 0;
 }
+
+// --------- Code for reference ------------
+// void conversions() {
+//   wchar_t one = (wchar_t)208;
+//   wchar_t two = (wchar_t)90;
+//   wchar_t nicole = '@';
+//   printf("%lc\n", nicole);
+//   wchar_t input[] = L"@#$\n";
+//   wprintf(input);
+// }
+
+// typedef struct Character {
+//   char letter;
+//   float frequency;
+//   // unsigned int mapping;
+//   // int length;
+// } Character;
