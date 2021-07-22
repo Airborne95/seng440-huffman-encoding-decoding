@@ -17,8 +17,8 @@
 
   Things to tackle:
     1. Verify that we can encode and decode (DONE)
-    2. Simulate generation of string based on frequencies
-    3. Build our tree (Done)
+    2. Simulate generation of string based on frequencies (DONE in Excel)
+    3. Build our tree (DONE)
     4. Stitch all together
 
 */
@@ -237,7 +237,7 @@ int main(int argc, char** argv) {
 
   // --------------  Basic Encoding Start --------------
   size_t map_len = sizeof(map_array)/sizeof(map_array[0]);
-  wchar_t input[] = L"aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789!@#$~^&*()-[]{}|,.<>/?αβψδεφγηξλμπρσθω\n";
+  wchar_t input[] = L"afCfaaKaaaIKIf3saFbFnAbfBEaba.HbdbafaRLAiCεbFabAbAhBcAejσjaabdc^cdabAIABfBeDAeDAdHbAaKbEcbb72DaCbeCA\n";
   char binary_string[5000] = "";
   for(int i=0; i < wcslen(input); i++){
     for(int j=0; j < map_len; j++){
