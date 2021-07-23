@@ -123,3 +123,55 @@
 // lut[97] = {'σ', '0x3FFFFFE', 27, 0.159 }; // Binary: 001 1111 1111 1111 1111 1111 1110
 // lut[98] = {'θ', '0x5FFFFFE', 27, 0.028 }; // Binary: 101 1111 1111 1111 1111 1111 1110
 // lut[99] = {'ω', '0x5FFFFFE', 27, 0.028 }; // Binary: 111 1111 1111 1111 1111 1111 1110
+
+// void readString() {
+//   wchar_t input[] = L"@#$\n";
+//   for(int letter = 0; letter < wcslen(input); letter++){
+//     printf("%lc ", input[letter]);
+//   }
+// }
+
+// void readFromObj(Character map_array[], size_t len) {
+//   for(int i = 0; i < len; i++){
+//     printf("%lc ", map_array[i].letter);
+//   }
+// }
+
+// void printSingleChar(wchar_t letter, bool new_line) {
+//    (new_line) ? printf("%lc\n", letter) : printf("%lc ", letter);
+// }
+
+// wchar_t convertToCharacter(int ASCI) {
+//   return (wchar_t)ASCI;
+// }
+
+// wchar_t convertToASCI(wchar_t letter) {
+//   return (int)letter;
+// }
+
+// --------- Code for reference ------------
+
+// for(int i=0; i < len; i++){
+//   printSingleChar(map_array[i].letter, true);
+// }
+
+// size_t len = sizeof(map_array)/sizeof(map_array[0]);
+// for(int i=0; i < len; i++){
+//   printSingleChar(map_array[i].letter, true);
+// }
+
+// void conversions() {
+//   wchar_t one = (wchar_t)208;
+//   wchar_t two = (wchar_t)90;
+//   wchar_t nicole = '@';
+//   printf("%lc\n", nicole);
+//   wchar_t input[] = L"@#$\n";
+//   wprintf(input);
+// }
+
+// typedef struct Character {
+//   char letter;
+//   float frequency;
+//   // unsigned int mapping;
+//   // int length;
+// } Character;
