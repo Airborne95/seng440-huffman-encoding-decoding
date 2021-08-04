@@ -27,6 +27,25 @@
     - transition rate
   Teamwork <3 10%
   Q&A 15%
+
+
+  ARM commands:
+
+  scp encoding.c optimized.c rafaych@seng440.ece.uvic.ca:/home/rafaych/Documents/seng440
+
+  arm-linux-gcc -static -o optimized.exe optimized.c
+
+  lftp user2@arm
+  q6coHjd7P 		//password
+  put optimized.exe
+  bye
+
+  telnet arm
+  user2         //login
+  q6coHjd7P 		/password
+  chmod +x optimized.exe
+  ./optimized.exe
+  exit
 */
 #include <stdlib.h>
 #include <stdio.h>
@@ -86,23 +105,59 @@ struct node* buildTree() {
   struct node* curr2 = branch2;
   struct node* curr3 = branch3;
   struct node* curr4 = branch4;
-  
-  for(int i = 0; i<wcslen(input1); i++){
-    curr1->left = newNode(input1[i]);
+
+  int i;
+  register wchar_t char1 = input1[0];
+  register wchar_t char2 = input2[0];
+  register wchar_t char3 = input3[0];
+  register wchar_t char4 = input4[0];
+
+  register int len = wcslen(input1);
+  for(i^=i; i<len; i+=2){
+    curr1->left = newNode(char1);
     curr1->right = newNode(L'+');
     curr1 = curr1->right;
 
-    curr2->left = newNode(input2[i]);
+    curr2->left = newNode(char2);
     curr2->right = newNode(L'+');
     curr2 = curr2->right;
 
-    curr3->left = newNode(input3[i]);
+    curr3->left = newNode(char3);
     curr3->right = newNode(L'+');
     curr3 = curr3->right;
 
-    curr4->left = newNode(input4[i]);
+
+    curr4->left = newNode(char4);
     curr4->right = newNode(L'+');
     curr4 = curr4->right;
+
+    // Loop unrolling
+    char1 = input1[i+1];
+    char2 = input2[i+1];
+    char3 = input3[i+1];
+    char4 = input4[i+1];
+
+    curr1->left = newNode(char1);
+    curr1->right = newNode(L'+');
+    curr1 = curr1->right;
+
+    curr2->left = newNode(char2);
+    curr2->right = newNode(L'+');
+    curr2 = curr2->right;
+
+    curr3->left = newNode(char3);
+    curr3->right = newNode(L'+');
+    curr3 = curr3->right;
+
+    curr4->left = newNode(char4);
+    curr4->right = newNode(L'+');
+    curr4 = curr4->right;
+
+    // Software pipelining
+    char1 = input1[i+2];
+    char2 = input2[i+2];
+    char3 = input3[i+2];
+    char4 = input4[i+2];
   }
   return (root);
 }
@@ -227,7 +282,7 @@ int main(int argc, char** argv) {
   register size_t map_len = sizeof(map_array)/sizeof(map_array[0]);
   register wchar_t local_char, local_char_next, local_letter;
   register char* local_binary;
-  register char binary_string[5000] = "";
+  char binary_string[5000] = "";
 
   // Software Pipelining
   local_char = (wchar_t)input[0];
@@ -255,7 +310,7 @@ int main(int argc, char** argv) {
     local_binary = (char*)map_array[0].binary;
     local_char = (wchar_t)input[i+1];
   }
-  printf("%s\n", binary_string);
+  // printf("%s\n", binary_string);
   // --------------  Basic Encoding End --------------
 
   // --------------  Basic Decoding Start --------------
