@@ -52,7 +52,6 @@
 #include <string.h>
 #include <wchar.h>
 #include <locale.h>
-#include <stdbool.h>
 
 #define ALPHABET_SIZE 100
 
