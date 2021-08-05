@@ -1,20 +1,11 @@
 /*
   Authors: Rafay and Nicole
 
-  Encoding - take string and turn into binary
-  Decoding - take binary and turn into string
-
+  compile: arm-linux-gcc -static -o original_encoding.exe original_encoding.c
   compile: gcc original_encoding.c -o original_encoding
   run: ./original_encoding
-
-  Notes:
-  '+' means an empty node
-  wchar_t one = (wchar_t)208;
-  wchar_t two = (wchar_t)90;
-  int one_i = (int)one;
-  if(one == two)
-  wprintf(L"U+%04X = '%lc' %d\n", 208, (wchar_t)208, 208);
 */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>

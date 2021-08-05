@@ -1,38 +1,11 @@
 /*
   Authors: Rafay and Nicole
 
-  Encoding - take string and turn into binary
-  Decoding - take binary and turn into string
-
+  compile: arm-linux-gcc -static -o decoding.exe decoding.c
   compile: gcc decoding.c -o decoding
   run: ./decoding
-
-  Notes:
-  '+' means an empty node
-  wchar_t one = (wchar_t)208;
-  wchar_t two = (wchar_t)90;
-  int one_i = (int)one;
-  if(one == two)
-  wprintf(L"U+%04X = '%lc' %d\n", 208, (wchar_t)208, 208);
-
-  ARM commands:
-
-  scp encoding.c optimized.c rafaych@seng440.ece.uvic.ca:/home/rafaych/Documents/seng440
-
-  arm-linux-gcc -static -o optimized.exe optimized.c
-
-  lftp user2@arm
-  q6coHjd7P 		//password
-  put optimized.exe
-  bye
-
-  telnet arm
-  user2         //login
-  q6coHjd7P 		/password
-  chmod +x optimized.exe
-  ./optimized.exe
-  exit
 */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
