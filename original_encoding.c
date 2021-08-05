@@ -138,8 +138,9 @@ int main(int argc, char** argv) {
   size_t map_len = sizeof(map_array)/sizeof(map_array[0]);
   wchar_t input[] = L"afCfaaKaaaIKIf3saFbFnAbfBEaba.HbdbafaRLAiCεbFabAbAhBcAejσjaabdc^cdabAIABfBeDAeDAdHbAaKbEcbb72DaCbeCA\n";
   char binary_string[5000] = "";
-  for(int i=0; i < wcslen(input); i++){
-    for(int j=0; j < map_len; j++){
+  int i, j;
+  for(i=0; i < wcslen(input); i++){
+    for(j=0; j < map_len; j++){
       if(input[i] == map_array[j].letter){
         strcat(binary_string, map_array[j].binary);
       }

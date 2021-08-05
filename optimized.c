@@ -33,21 +33,33 @@
 
   ssh rafaych@seng440.ece.uvic.ca
 
-  Local to Remote:
-  scp encoding.c rafaych@seng440.ece.uvic.ca:/home/rafaych/Documents/seng440
-  scp decoding.c rafaych@seng440.ece.uvic.ca:/home/rafaych/Documents/seng440
-
   Remote to Local:
   scp rafaych@seng440.ece.uvic.ca:/home/rafaych/Documents/seng440/encoding.s /Users/dev-rafay/Dev/seng440
   scp rafaych@seng440.ece.uvic.ca:/home/rafaych/Documents/seng440/decoding.s /Users/dev-rafay/Dev/seng440
+  scp rafaych@seng440.ece.uvic.ca:/home/rafaych/Documents/seng440/original_encoding.s /Users/dev-rafay/Dev/seng440
+  scp rafaych@seng440.ece.uvic.ca:/home/rafaych/Documents/seng440/original_decoding.s /Users/dev-rafay/Dev/seng440
 
+  Local to Remote:
+  scp encoding.c  rafaych@seng440.ece.uvic.ca:/home/rafaych/Documents/seng440
+  scp decoding.c rafaych@seng440.ece.uvic.ca:/home/rafaych/Documents/seng440
+
+  scp original_encoding.c original_decoding.c rafaych@seng440.ece.uvic.ca:/home/rafaych/Documents/seng440
+
+  Get Assembly
+  arm-linux-gcc -S encoding.c decoding.c original_encoding.c original_decoding.c
+
+  Arm stuff
   arm-linux-gcc -static -o encoding.exe encoding.c
   arm-linux-gcc -static -o decoding.exe decoding.c
+  arm-linux-gcc -static -o original_encoding.exe original_encoding.c
+  arm-linux-gcc -static -o original_decoding.exe original_decoding.c
 
   lftp user2@arm
   q6coHjd7P 		//password
   put encoding.exe
   put decoding.exe
+  put original_encoding.exe
+  put original_decoding.exe
   bye
 
   telnet arm
@@ -55,8 +67,12 @@
   q6coHjd7P 		/password
   chmod +x encoding.exe
   chmod +x decoding.exe
+  chmod +x original_encoding.exe
+  chmod +x original_decoding.exe
   ./encoding.exe
   ./decoding.exe
+  ./original_encoding.exe
+  ./original_decoding.exe
   exit
 */
 #include <stdlib.h>

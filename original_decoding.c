@@ -67,8 +67,9 @@ struct node* buildTree() {
   struct node* curr2 = branch2;
   struct node* curr3 = branch3;
   struct node* curr4 = branch4;
-  
-  for(int i = 0; i<wcslen(input1); i++){
+
+  int i;
+  for(i = 0; i<wcslen(input1); i++){
     curr1->left = newNode(input1[i]);
     curr1->right = newNode(L'+');
     curr1 = curr1->right;
@@ -99,7 +100,8 @@ int main(int argc, char** argv) {
   wchar_t decoded_string[100] = L"";
   struct node* curr = root;
   size_t binary_string_len = strlen(binary_string);
-  for(int i = 0; i < binary_string_len; i++){
+  int i;
+  for(i = 0; i < binary_string_len; i++){
     if(binary_string[i] == '0'){
       curr = curr->left;
     }else{
