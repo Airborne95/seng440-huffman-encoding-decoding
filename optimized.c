@@ -31,20 +31,32 @@
 
   ARM commands:
 
-  scp encoding.c optimized.c rafaych@seng440.ece.uvic.ca:/home/rafaych/Documents/seng440
+  ssh rafaych@seng440.ece.uvic.ca
 
-  arm-linux-gcc -static -o optimized.exe optimized.c
+  Local to Remote:
+  scp encoding.c rafaych@seng440.ece.uvic.ca:/home/rafaych/Documents/seng440
+  scp decoding.c rafaych@seng440.ece.uvic.ca:/home/rafaych/Documents/seng440
+
+  Remote to Local:
+  scp rafaych@seng440.ece.uvic.ca:/home/rafaych/Documents/seng440/encoding.s /Users/dev-rafay/Dev/seng440
+  scp rafaych@seng440.ece.uvic.ca:/home/rafaych/Documents/seng440/decoding.s /Users/dev-rafay/Dev/seng440
+
+  arm-linux-gcc -static -o encoding.exe encoding.c
+  arm-linux-gcc -static -o decoding.exe decoding.c
 
   lftp user2@arm
   q6coHjd7P 		//password
-  put optimized.exe
+  put encoding.exe
+  put decoding.exe
   bye
 
   telnet arm
   user2         //login
   q6coHjd7P 		/password
-  chmod +x optimized.exe
-  ./optimized.exe
+  chmod +x encoding.exe
+  chmod +x decoding.exe
+  ./encoding.exe
+  ./decoding.exe
   exit
 */
 #include <stdlib.h>
